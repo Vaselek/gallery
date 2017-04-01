@@ -18,23 +18,11 @@ class ImagesController < InheritedResources::Base
   def show
     @commentary = Commentary.new
     @image = Image.find(params[:id])
+    @image_commentaries = @image.commentaries.order(created_at: :desc)
   end
 
   def index
     @images = Image.all.order(created_at: :desc).paginate(:page => params[:page])
-  end
-
-  def edit
-    @image = current_user.images.find(params[:id])
-  end
-
-  def update
-    @image = current_user.images.find(params[:id])
-    if @image.update(image_params)
-      redirect_to root_url
-    else
-      render 'new'
-    end
   end
 
   def destroy

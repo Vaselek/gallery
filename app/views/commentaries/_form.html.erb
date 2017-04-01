@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :grade %>
-    <%= f.number_field :grade %>
+    <%= f.select(:grade, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], class: 'form-control')  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: 'form-control'  %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Create comment", class: "btn btn-primary btn-block btn-lg"  %>
   </div>
 <% end %>
+

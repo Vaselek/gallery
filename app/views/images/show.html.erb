@@ -1,32 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @image.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @image.user %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
-
+<div class="container">
+  <h2><%= @image.title %></h2>
+  <div class="img-thumbnail">
+    <%= image_tag @image.file_url(:large) %>
+  </div>
+  <div>
+    uploaded by <%= @image.user.name %>
+  </div>
 
 <div class="row">
-  <%= link_to 'Comments', '#', class: 'comments-link' %>
-  <div class="comments_section">
-    <div class="col-sm-7">
-      <ol id="comments">
-        <%= render @image.commentaries %>
-      </ol>
-    </div>
-    <div class="col-sm-3">
-      <%= render partial: "commentaries/form" %>
-    </div>
-    <div>
-      <%= @image.commentaries.average(:grade) %>
-    </div>
+  <div class="col-sm-7">
+    <ol id="comments">
+      <% @image_commentaries.each do |commentary| %>
+        <div class="col-sm-12">
+          <div class="panel panel-white post panel-shadow">
+            <div class="post-heading">
+              <div class="pull-left meta">
+                <div class="title h5">
+                  <strong><%= commentary.user.name %></strong> said: <%= commentary.content %> (<%= commentary.grade %> points)
+                </div>
+              </div>
+            </div>
+            <% if commentary.user == current_user %>
+              <div class="post-editor right">
+                <p><%= link_to "Delete", commentary_path(commentary), method: :delete %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <h4 class='right'>Rate:<%= @image.commentaries.average(:grade).round(2) %> points</h4>
+    </ol>
   </div>
+  <div class="col-sm-3">
+    <%= render partial: "commentaries/form" %>
+  </div>
+  </div>
+</div>
+<%= link_to 'Back', images_path %>
 </div>

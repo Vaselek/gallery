@@ -1,7 +1,7 @@
 <div class="container">
 
   <p id="notice"><%= notice %></p>
-  
+
   <div class="row">
     <div class="col-md-8">
       <h1><%= @user.name %> profile</h1>
@@ -10,7 +10,7 @@
       <%= link_to "Edit", edit_user_registration_path(@user) %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-8">
       <h2>My photos</h2>
@@ -19,8 +19,6 @@
       <%= link_to "Create new photo", new_image_path %>
     </div>
   </div>
-
-
   <div class="container">
     <div class="row">
     <% @user_images.each do |image| %>
@@ -30,8 +28,7 @@
             <div class="caption">
             <div class="row">
             <div class="col-md-4">
-
-              <%= link_to 'Edit', edit_image_path(image) %>||<%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
             </div>
             <div class="coll-md-8 right">
               <%= image.title %></br>

@@ -6,17 +6,12 @@ class CommentariesController < InheritedResources::Base
     flash[:success] = "Comment deleted!"
 
     redirect_to :back
-    # @commentary = @photo.commentarys.find(params[:id])
-
-    # @commentary.destroy
-    # flash[:success] = "Comment deleted!"
-    # redirect_to :back
   end
 
   def create
     @image = Image.find(params[:image_id])
     @commentary = @image.commentaries.build(commentary_params)
-    @commentary.user_id = current_user.id
+    @commentary.user = current_user
 
     if @commentary.save
       respond_to do |format|

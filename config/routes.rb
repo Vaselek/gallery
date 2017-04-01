@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'images#index'
 
-  resources :images do
+  resources :images, only: [:create, :destroy, :index, :show, :new] do
     resources :commentaries, only: [:create, :index]
   end
 
