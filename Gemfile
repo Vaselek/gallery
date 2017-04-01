@@ -27,6 +27,7 @@ gem 'cancancan'
 gem 'devise-bootstrapped'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
+gem 'faker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

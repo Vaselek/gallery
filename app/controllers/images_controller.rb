@@ -21,7 +21,7 @@ class ImagesController < InheritedResources::Base
   end
 
   def index
-    @images = Image.all
+    @images = Image.all.order(created_at: :desc)
   end
 
   def edit
