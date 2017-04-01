@@ -22,8 +22,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'bootstrap-sass'
-
-
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
+gem 'cancancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
