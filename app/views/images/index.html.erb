@@ -9,9 +9,11 @@
         <div><%= link_to (image_tag image.file_url(:thumb)), image %></td></div>
           <div class="caption">
           <div class="row">
-          <div class="col-md-4">
-            <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-          </div>
+          <% if (user_signed_in?) && (can? :manage, Image) %>
+            <div class="col-md-4">
+              <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
+          <% end %>
           <div class="coll-md-8 right">
             <%= image.title %></br>
             <span class="text-muted">uploaded by</span>
@@ -26,9 +28,6 @@
   </div>
 
 </div>
-
-
-
 
 <br>
 
