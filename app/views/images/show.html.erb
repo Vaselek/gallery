@@ -12,3 +12,21 @@
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
+
+
+<div class="row">
+  <%= link_to 'Comments', '#', class: 'comments-link' %>
+  <div class="comments_section">
+    <div class="col-sm-7">
+      <ol id="comments">
+        <%= render @image.commentaries %>
+      </ol>
+    </div>
+    <div class="col-sm-3">
+      <%= render partial: "commentaries/form" %>
+    </div>
+    <div>
+      <%= @image.commentaries.average(:grade) %>
+    </div>
+  </div>
+</div>

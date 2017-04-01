@@ -16,6 +16,7 @@ class ImagesController < InheritedResources::Base
   end
 
   def show
+    @commentary = Commentary.new
     @image = Image.find(params[:id])
   end
 
