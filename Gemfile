@@ -28,6 +28,7 @@ gem 'devise-bootstrapped'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem 'faker'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

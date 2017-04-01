@@ -21,7 +21,7 @@ class ImagesController < InheritedResources::Base
   end
 
   def index
-    @images = Image.all.order(created_at: :desc)
+    @images = Image.all.order(created_at: :desc).paginate(:page => params[:page])
   end
 
   def edit

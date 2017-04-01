@@ -16,7 +16,7 @@
           <div class="coll-md-8 right">
             <%= image.title %></br>
             <span class="text-muted">uploaded by</span>
-            <%= image.user.name %>
+            <%= link_to image.user.name, user_show_path(image.user) %>
           </div>
           </div>
           </div>
@@ -34,3 +34,5 @@
 <br>
 
 <%= link_to 'New Image', new_image_path %>
+
+<%= will_paginate @images %>

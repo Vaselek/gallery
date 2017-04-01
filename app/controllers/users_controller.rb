@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @commentary = Commentary.new
+    @user = User.find(params[:id])
+    @user_images = @user.images.paginate(:page => params[:page])
   end
+
 end

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
+  # get 'users/index'
 
-  get 'users/show'
+  # get 'users/show'
+
+  get 'user/:id' => 'users#show', as: 'user_show'
 
   root 'images#index'
 

@@ -1,2 +1,54 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%= @user.name %> profile</h1>
+    </div>
+    <div class="col-md-4">
+      <%= link_to "Edit", edit_user_registration_path(@user) %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-8">
+      <h2>My photos</h2>
+    </div>
+    <div class="col-md-4">
+      <%= link_to "Create new photo", new_image_path %>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+    <% @user_images.each do |image| %>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <div><%= link_to (image_tag image.file_url(:thumb)), image %></td></div>
+            <div class="caption">
+            <div class="row">
+            <div class="col-md-4">
+
+              <%= link_to 'Edit', edit_image_path(image) %>||<%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </div>
+            <div class="coll-md-8 right">
+              <%= image.title %></br>
+              <span class="text-muted">uploaded by</span>
+              <%= image.user.name %>
+            </div>
+            </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <%= will_paginate @user_images %>
+</div>
+
