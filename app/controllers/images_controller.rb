@@ -19,6 +19,7 @@ class ImagesController < InheritedResources::Base
     @commentary = Commentary.new
     @image = Image.find(params[:id])
     @image_commentaries = @image.commentaries.order(created_at: :desc)
+    @rate = ((@image.commentaries.average(:grade).nil?) ? ("0") : (@image.commentaries.average(:grade).round(2)))
   end
 
   def index

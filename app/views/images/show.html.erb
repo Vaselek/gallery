@@ -18,7 +18,9 @@
             <div class="post-heading">
               <div class="pull-left meta">
                 <div class="title h5">
-                  <strong><%= commentary.user.name %></strong> said: <%= commentary.content %> (<%= commentary.grade %> points)
+
+                    <strong><%= commentary.user.name %></strong> said: <%= commentary.content %> (<%= commentary.grade %> points)
+
                 </div>
               </div>
             </div>
@@ -30,7 +32,7 @@
           </div>
         </div>
       <% end %>
-      <h4 class='right'>Rate:<%= @image.commentaries.average(:grade).round(2) %> points</h4>
+        <h4 class='right'><%= @rate %> points</h4>
     </ol>
   </div>
   <div class="col-sm-3">
